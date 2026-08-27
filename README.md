@@ -8,10 +8,10 @@ The tool provides functionality for managing Linux users and groups, modifying u
 
 ## Features
 
-- Add a new user
-- Delete an existing user and its home directory
+- Add a new Linux user
+- Delete an existing user and their home directory
 - Modify a user's default shell
-- Create a new group
+- Create a new Linux group
 - Add a user to an existing group
 - Create a ZIP backup of a directory
 - Generate timestamped backup filenames
@@ -42,18 +42,19 @@ The tool provides functionality for managing Linux users and groups, modifying u
 ```text
 linux-user-management-backup-tool/
 │
-├── user_management_backup_tool.sh
 ├── README.md
+├── user_management_backup_tool.sh
 │
 └── screenshots/
     ├── main-menu.png
     ├── add-user.png
     ├── delete-user.png
-    ├── modify-user.png
+    ├── modify-user-shell.png
     ├── create-group.png
     ├── add-user-to-group.png
-    ├── backup-directory.png
-    └── error-handling.png
+    ├── backup-success.png
+    ├── error-user-exists.png
+    └── exit-program.png
 ```
 
 ---
@@ -90,6 +91,8 @@ chmod 774 user_management_backup_tool.sh
 
 ## Main Menu
 
+When the script is executed, the following interactive menu is displayed:
+
 ```text
 =========================================
    USER MANAGEMENT & BACKUP TOOL
@@ -104,7 +107,7 @@ chmod 774 user_management_backup_tool.sh
 =========================================
 ```
 
-### Screenshot
+![Main Menu](screenshots/main-menu.png)
 
 ---
 
@@ -116,10 +119,12 @@ Creates a new Linux user and automatically creates the user's home directory.
 
 ```text
 Enter the new username: testuser
+New password:
+Retype new password:
 Success: User 'testuser' has been added.
 ```
 
-### Screenshot
+![Add User](screenshots/add-user.png)
 
 ---
 
@@ -132,7 +137,7 @@ Enter the username to delete: testuser
 Success: User 'testuser' and their home directory have been deleted.
 ```
 
-### Screenshot
+![Delete User](screenshots/delete-user.png)
 
 ---
 
@@ -146,7 +151,7 @@ Enter the new shell path: /bin/bash
 Success: User 'testuser' shell changed to /bin/bash.
 ```
 
-### Screenshot
+![Modify User Shell](screenshots/modify-user-shell.png)
 
 ---
 
@@ -159,7 +164,7 @@ Enter the new group name: developers
 Success: Group 'developers' has been created.
 ```
 
-### Screenshot
+![Create Group](screenshots/create-group.png)
 
 ---
 
@@ -173,17 +178,19 @@ Enter the group name: developers
 Success: User 'testuser' added to group 'developers'.
 ```
 
-### Screenshot
+![Add User to Group](screenshots/add-user-to-group.png)
 
 ---
 
 ### 6. Backup a Directory
 
-Creates a ZIP archive of a selected directory. The backup filename includes the directory name and a timestamp.
+Creates a ZIP archive of a selected directory. The backup filename automatically includes the directory name and a timestamp.
+
+Example:
 
 ```text
 Enter the absolute path of the directory to backup:
-/home/user/Documents
+/home/ubuntu/test-backup
 
 Starting backup process...
 
@@ -193,10 +200,10 @@ Success: Backup completed!
 Example backup filename:
 
 ```text
-Documents_backup_2026-08-27-10-30.zip
+test-backup_backup_2026-08-27-02-22.zip
 ```
 
-### Screenshot
+![Directory Backup](screenshots/backup-success.png)
 
 ---
 
@@ -210,7 +217,7 @@ Please select an option (1-7): 7
 Exiting the script. Have a great day!
 ```
 
-### Screenshot
+![Exit Program](screenshots/exit-program.png)
 
 ---
 
@@ -231,7 +238,7 @@ Example:
 Error: User 'testuser' already exists.
 ```
 
-### Screenshot
+![Error Handling](screenshots/error-user-exists.png)
 
 ---
 
