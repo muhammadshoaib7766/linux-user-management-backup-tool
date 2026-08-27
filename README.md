@@ -1,27 +1,22 @@
 # Linux User Management & Backup Tool
 
-A practical Bash scripting project that automates basic Linux system administration tasks through an interactive command-line interface.
+A practical Bash scripting project designed to automate common Linux system administration tasks through an interactive, menu-driven command-line interface.
 
-The tool allows users to manage Linux user accounts and groups, modify user shells, and create compressed backups of directories.
+The tool provides functionality for managing Linux users and groups, modifying user shells, and creating compressed backups of directories.
+
+---
 
 ## Features
 
-| Option | Function |
-|---|---|
-| 1 | Add a new user |
-| 2 | Delete an existing user |
-| 3 | Modify a user's default shell |
-| 4 | Create a new group |
-| 5 | Add a user to a group |
-| 6 | Backup a directory into a ZIP file |
-| 7 | Exit the program |
-
-Additional features include:
-
-- User and group existence checks
-- Directory path validation
-- Timestamped backup filenames
-- Basic error handling
+- Add a new user
+- Delete an existing user and its home directory
+- Modify a user's default shell
+- Create a new group
+- Add a user to an existing group
+- Create a ZIP backup of a directory
+- Generate timestamped backup filenames
+- Validate users, groups, and directory paths
+- Handle basic errors and invalid input
 - Interactive menu-driven interface
 
 ---
@@ -30,8 +25,9 @@ Additional features include:
 
 - Bash Shell Scripting
 - Linux
-- Git and GitHub
-- Linux system administration commands
+- Git
+- GitHub
+- Linux System Administration Commands
 - `useradd`
 - `userdel`
 - `usermod`
@@ -64,37 +60,35 @@ linux-user-management-backup-tool/
 
 ## Getting Started
 
-### 1. Clone the Repository
+### Clone the Repository
 
 ```bash
-git clone git@github.com:muhammadshoaib776/linux-user-management-backup-tool.git
+git clone git@github.com:muhammadshoaib7766/linux-user-management-backup-tool.git
 ```
 
-### 2. Navigate to the Project Directory
+### Navigate to the Project Directory
 
 ```bash
 cd linux-user-management-backup-tool
 ```
 
-### 3. Give Execute Permission
+### Give Execute Permission
 
 ```bash
 chmod 774 user_management_backup_tool.sh
 ```
 
-### 4. Run the Script
+### Run the Script
 
 ```bash
 ./user_management_backup_tool.sh
 ```
 
-> **Note:** Some operations require administrator privileges. The script uses `sudo` for commands that modify users and groups.
+> Some operations require administrator privileges. The script uses `sudo` for commands that modify users and groups.
 
 ---
 
 ## Main Menu
-
-When the script is executed, the following menu is displayed:
 
 ```text
 =========================================
@@ -110,39 +104,41 @@ When the script is executed, the following menu is displayed:
 =========================================
 ```
 
+### Screenshot
+
 ---
 
 ## Usage
 
-### Add a New User
+### 1. Add a New User
 
-Select option `1` and enter a username.
-
-The script checks whether the user already exists. If not, it creates the user along with a home directory and prompts for a password.
-
-Example:
+Creates a new Linux user and automatically creates the user's home directory.
 
 ```text
 Enter the new username: testuser
 Success: User 'testuser' has been added.
 ```
 
-### Delete a User
+### Screenshot
 
-Select option `2` and enter the username to delete.
+---
 
-The user account and its home directory are removed.
+### 2. Delete a User
+
+Deletes an existing Linux user along with the user's home directory.
 
 ```text
 Enter the username to delete: testuser
 Success: User 'testuser' and their home directory have been deleted.
 ```
 
-### Modify User Shell
+### Screenshot
 
-Select option `3` to change the default shell of an existing user.
+---
 
-Example:
+### 3. Modify User Shell
+
+Changes the default shell of an existing user.
 
 ```text
 Enter the username to modify: testuser
@@ -150,18 +146,26 @@ Enter the new shell path: /bin/bash
 Success: User 'testuser' shell changed to /bin/bash.
 ```
 
-### Create a New Group
+### Screenshot
 
-Select option `4` and enter a group name.
+---
+
+### 4. Create a New Group
+
+Creates a new Linux group after checking whether the group already exists.
 
 ```text
 Enter the new group name: developers
 Success: Group 'developers' has been created.
 ```
 
-### Add a User to a Group
+### Screenshot
 
-Select option `5` and provide an existing username and group name.
+---
+
+### 5. Add a User to a Group
+
+Adds an existing user to an existing Linux group.
 
 ```text
 Enter the username: testuser
@@ -169,13 +173,13 @@ Enter the group name: developers
 Success: User 'testuser' added to group 'developers'.
 ```
 
-### Backup a Directory
+### Screenshot
 
-Select option `6` and enter the absolute path of the directory.
+---
 
-The script creates a ZIP archive with a timestamped filename.
+### 6. Backup a Directory
 
-Example:
+Creates a ZIP archive of a selected directory. The backup filename includes the directory name and a timestamp.
 
 ```text
 Enter the absolute path of the directory to backup:
@@ -192,19 +196,27 @@ Example backup filename:
 Documents_backup_2026-08-27-10-30.zip
 ```
 
-### Exit
+### Screenshot
 
-Select option `7` to safely exit the program.
+---
+
+### 7. Exit
+
+Safely exits the program.
 
 ```text
+Please select an option (1-7): 7
+
 Exiting the script. Have a great day!
 ```
+
+### Screenshot
 
 ---
 
 ## Error Handling
 
-The script includes basic validation for common errors, including:
+The script performs basic validation and handles common errors, including:
 
 - User already exists
 - User does not exist
@@ -219,85 +231,16 @@ Example:
 Error: User 'testuser' already exists.
 ```
 
----
-
-## Screenshots
-
-Screenshots demonstrating the practical execution of the project can be added to the `screenshots` directory.
-
-Recommended screenshots:
-
-1. Main menu
-2. Adding a new user
-3. Deleting a user
-4. Changing a user's shell
-5. Creating a group
-6. Adding a user to a group
-7. Directory backup
-8. Error handling
-
-After uploading the screenshots, they can be displayed in this section.
-
-### Main Menu
-
-```markdown
-![Main Menu](screenshots/main-menu.png)
-```
-
-### Add User
-
-```markdown
-![Add User](screenshots/add-user.png)
-```
-
-### Delete User
-
-```markdown
-![Delete User](screenshots/delete-user.png)
-```
-
-### Modify User Shell
-
-```markdown
-![Modify User](screenshots/modify-user.png)
-```
-
-### Create Group
-
-```markdown
-![Create Group](screenshots/create-group.png)
-```
-
-### Add User to Group
-
-```markdown
-![Add User to Group](screenshots/add-user-to-group.png)
-```
-
-### Backup Directory
-
-```markdown
-![Backup Directory](screenshots/backup-directory.png)
-```
-
-### Error Handling
-
-```markdown
-![Error Handling](screenshots/error-handling.png)
-```
+### Screenshot
 
 ---
 
 ## Requirements
 
-To run this project, you need:
-
-- A Linux operating system
+- Linux operating system
 - Bash shell
 - `sudo` privileges
 - `zip` utility
-
-If the `zip` utility is not installed, install it using your distribution's package manager.
 
 ### Ubuntu / Debian
 
@@ -321,8 +264,6 @@ sudo pacman -S zip
 
 ## Concepts Practiced
 
-This project demonstrates practical knowledge of:
-
 - Bash scripting
 - Functions
 - User input with `read`
@@ -336,24 +277,22 @@ This project demonstrates practical knowledge of:
 - File and directory validation
 - Backup automation
 - Error handling
-- Basic Linux system administration
+- Linux system administration
 - Git and GitHub
 
 ---
 
 ## Future Improvements
 
-Possible future improvements include:
-
-- Add colored terminal output
-- Add confirmation before deleting users
-- Add logging functionality
-- Validate shell paths before modification
-- Allow custom backup destinations
-- Support `.tar.gz` backups
-- Display user and group information
-- Check whether required commands are installed
-- Add automatic cleanup of old backups
+- Colored terminal output
+- Confirmation before deleting users
+- Logging functionality
+- Shell path validation
+- Custom backup destination
+- `.tar.gz` backup support
+- User and group information display
+- Required command checks
+- Automatic cleanup of old backups
 
 ---
 
@@ -361,10 +300,10 @@ Possible future improvements include:
 
 **Muhammad Shoaib**
 
-GitHub: https://github.com/muhammadshoaib776
+GitHub: https://github.com/muhammadshoaib7766
 
 ---
 
 ## License
 
-This project is created for educational and practical learning purposes.
+This project was created for educational and practical learning purposes.
